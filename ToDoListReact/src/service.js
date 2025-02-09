@@ -12,7 +12,7 @@ axios.interceptors.response.use(
 
 export default {
   getTasks: async () => {
-    const result = await axios.get(`/Items`)    
+    const result = await axios.get(`/ToDos`)    
     return result.data;
   },
 
