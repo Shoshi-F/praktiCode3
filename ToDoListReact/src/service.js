@@ -22,10 +22,10 @@ export default {
     return {};
   },
 
-  setCompleted: async(id,isComplete)=>{
-    const result = await axios.put(`/ToDos/${id}?iscomplete=${isComplete}`, {});
-    return result.data;
+  setCompleted: async (id, isComplete,name) => {
+    await axios.put(`/Todos/${id}`, {name:name,isComplete: isComplete });
   },
+
 
   deleteTask:async(id)=>{
     await axios.delete(`/ToDos/${id}`,id)
