@@ -1,48 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
-using Pomelo.EntityFrameworkCore.MySql.Scaffolding.Internal;
+﻿using Microsoft.EntityFrameworkCore;
+//using System.IdentityModel.Tokens.Jwt;
+// using Microsoft.IdentityModel.Tokens;
+using TodoApi;
 
-namespace TodoApi;
 
-public partial class ToDoDbContext : DbContext
+
+
+public class ToDoDbContext : DbContext
 {
-    //בנאי ריק
-    public ToDoDbContext()
+    public DbSet<Item> Items { get; set; }
+    //public DbSet<User> Users { get; set; } // הוספת DbSet למשתמשים
+
+    public ToDoDbContext(DbContextOptions<ToDoDbContext> options) : base(options)
     {
     }
 
-    //בנאי מלא
-    public ToDoDbContext(DbContextOptions<ToDoDbContext> options)
-        : base(options)
-    {
-    }
-    //מודל item המייצג את הנתונים בטבלה
-    public virtual DbSet<Item> Items { get; set; }
-
-    //הגדרת חיבור למסד נתונים
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseMySql( Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.41-mysql"));
-
-    //הגדרת המודלים
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        //הרשאות כתיבה לתווים מסוימים
-        modelBuilder
-            .UseCollation("utf8mb4_0900_ai_ci")
-            .HasCharSet("utf8mb4");
-
-        modelBuilder.Entity<Item>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("PRIMARY");
-
-            entity.ToTable("items");
-
-            entity.Property(e => e.Name).HasMaxLength(100);
-        });
-
-        OnModelCreatingPartial(modelBuilder);
+        modelBuilder.Entity<Item>().ToTable("Items");
     }
-
-    partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }
