@@ -3,13 +3,8 @@ body {
     margin: 0;
     padding: 0;
     height: 100%;
-    background-color: #ff1493; /* ורוד זורח */
-}
-
-body {
-    font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    line-height: 1.4em;
-    color: #ffffff;
+    background-color: #ff1493; /* ורוד זוהר */
+    font-family: "Poppins", sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,20 +18,16 @@ body {
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     padding: 40px;
-    width: 80%; /* ריבוע המשימות בגודל הכותרת */
+    width: 50%;
     text-align: center;
 }
 
-/* עיצוב משופר לכותרת */
+/* כותרת בעיצוב מודגש */
 #todoapp h1 {
-    font-size: 90px;
+    font-size: 60px;
     font-weight: bold;
     text-align: center;
-    font-family: "Poppins", Arial, Helvetica, sans-serif;
-    margin: 20px 0;
-    line-height: 1.2;
     text-transform: uppercase;
-    letter-spacing: 3px;
     color: #ffffff;
     background: linear-gradient(45deg, #ff8c00, #ff1493);
     -webkit-background-clip: text;
@@ -61,57 +52,45 @@ body {
     color: rgba(255, 255, 255, 0.7);
 }
 
-/* עיצוב הרשימה */
+/* רשימת משימות */
 .todo-list {
     list-style: none;
     padding: 0;
     margin-top: 20px;
 }
 
+/* כל משימה תיראה עם אפקט זכוכית */
 .todo-list li {
-    font-size: 24px;
+    font-size: 22px;
     padding: 15px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    margin: 10px 0;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.15); /* רקע שקוף */
+    backdrop-filter: blur(10px); /* אפקט זכוכית */
     display: flex;
     align-items: center;
     justify-content: space-between;
-    transition: opacity 0.3s ease-in-out;
+    color: white;
+    transition: all 0.3s ease-in-out;
 }
 
-/* כשמשימה מסומנת כבוצעה – נעלמת */
-.todo-list li.completed {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-    height: 0;
-    overflow: hidden;
-    padding: 0;
-    margin: 0;
+/* אפקט hover על משימה */
+.todo-list li:hover {
+    background: rgba(255, 255, 255, 0.3);
 }
 
-/* עיצוב הטקסט בתוך המשימה */
-.todo-list li label {
-    flex-grow: 1;
-    cursor: pointer;
-}
-
-/* הסרת הריבוע הקטן */
-.todo-list li input[type="checkbox"] {
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #fff;
-    border-radius: 5px;
-    margin-right: 10px;
-    cursor: pointer;
-    position: relative;
-}
-
-/* עיצוב ה-V כשמסמנים משימה */
-.todo-list li input[type="checkbox"]:checked::after {
-    content: "✔";
+/* עיצוב כפתור X למחיקת משימה */
+.todo-list li .delete-btn {
+    background: none;
+    border: none;
+    color: white;
     font-size: 18px;
-    color: #fff;
-    position: absolute;
-    left: 3px;
-    top: -2px;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: 0.3s;
+}
+
+.todo-list li .delete-btn:hover {
+    color: red;
+    transform: scale(1.2);
 }
