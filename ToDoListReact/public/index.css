@@ -1,54 +1,67 @@
-html,
-body {
+html, body {
     margin: 0;
     padding: 0;
-    height: 100%; /* להבטיח שהגובה יתפוס את כל המסך */
-    background-color: #ff33a1;
+    height: 100%;
+    background-color: #ff1493; /* ורוד זורח */
 }
 
 body {
     font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
     line-height: 1.4em;
-    background: linear-gradient(135deg, #f5f5f5, #eaeaea); /* רקע צבעוני */
     color: #4d4d4d;
     display: flex;
-    justify-content: center; /* מרכז את התוכן אופקית */
-    align-items: center; /* מרכז את התוכן אנכית */
-    min-height: 100vh; /* מבטיח שהתוכן יהיה במרכז המסך */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 #todoapp {
     background: grey;
-    margin: 0; /* מסיר את המרווחים */
+    width: 80%; /* הרוחב של הריבוע יהיה רחב מספיק כמו הכותרת */
+    max-width: 800px;
     border: 1px solid #ccc;
-    border-radius: 5px; /* עגלול את הפינות */
+    border-radius: 5px;
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.15);
-    padding: 20px; /* הוספת ריפוד פנימי */
+    padding: 20px;
 }
 
 #todoapp h1 {
-    font-size: 300px; /* הגדלת גודל הכותרת */
+    font-size: 80px; /* הגודל נשאר גדול אך מותאם למסך */
     font-weight: 100;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    margin: 20px 0; /* הוספת מרווח עליון ותחתון */
-    line-height: 1.2; /* גובה שורה */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* הוספת צל */
+    margin: 20px 0;
+    line-height: 1.2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     text-decoration-color: aqua;
 }
 
-#todoapp h1 span {
-    display: inline-block;
-    animation: colorChange 5s infinite; /* אנימציה לשינוי צבע */
-}
-.new-todo{
-    height: 35px;
-    width: 50px;
+.new-todo {
+    height: 50px;
+    width: 100%; /* הטופס למילוי משימות יהיה ברוחב הריבוע */
     background-color: #ee4ea336;
     border-radius: 20px;
     border-style: solid;
-    padding-top: 25px;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.todo-list {
+    list-style: none;
+    padding: 0;
+}
+
+.todo-list li {
+    font-size: 18px;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
+}
+
+.todo-list li.completed {
+    display: none; /* משימות שנמחקות ייעלמו מהמסך */
 }
 
 @keyframes colorChange {
@@ -58,5 +71,3 @@ body {
     75% { color: #ff33a1; }
     100% { color: #ff5733; }
 }
-
-/* שאר הקוד שלך נשאר כפי שהוא */
