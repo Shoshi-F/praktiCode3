@@ -4,6 +4,7 @@ EXPOSE 80
 EXPOSE 443
 
 ENV ASPNETCORE_URLS=http://+:80
+ENV DOTNET_RUNNING_IN_CONTAINER=true
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0-nanoserver-1809 AS build
 ARG configuration=Release
@@ -11,7 +12,6 @@ WORKDIR /src
 COPY ["TodoApi.csproj", "./"]
 RUN dotnet restore "TodoApi.csproj"
 COPY . .
-WORKDIR "/src/."
 RUN dotnet build "TodoApi.csproj" -c $configuration -o /app/build
 
 FROM build AS publish
@@ -22,4 +22,3 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "TodoApi.dll"]
-
