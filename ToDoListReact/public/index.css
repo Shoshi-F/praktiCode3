@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100%; /* להבטיח שהגובה יתפוס את כל המסך */
+    background-color: #ff33a1;
 }
 
 body {
@@ -17,7 +18,7 @@ body {
 }
 
 #todoapp {
-    background: rgba(255, 255, 255, 0.9);
+    background: grey;
     margin: 0; /* מסיר את המרווחים */
     border: 1px solid #ccc;
     border-radius: 5px; /* עגלול את הפינות */
@@ -39,6 +40,15 @@ body {
 #todoapp h1 span {
     display: inline-block;
     animation: colorChange 5s infinite; /* אנימציה לשינוי צבע */
+}
+.new-todo{
+    height: 35px;
+    width: 50px;
+    background-color: #ee4ea336;
+    border-radius: 20px;
+    border-style: solid;
+    padding-top: 25px;
+    align-items: center;
 }
 
 @keyframes colorChange {

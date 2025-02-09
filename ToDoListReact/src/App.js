@@ -34,7 +34,7 @@ function App() {
   return (
     <section className="todoapp">
       <header className="header">
-        <h1>Work and shine</h1>
+      <h1 style={{ fontSize: '60px', color: 'blue', textAlign: 'center' }}>Work and shine</h1>
         <form onSubmit={createTodo}>
           <input className="new-todo" placeholder="Well, let's take on the day" value={newTodo} onChange={(e) => setNewTodo(e.target.value)} />
         </form>
