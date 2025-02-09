@@ -22,7 +22,7 @@ public partial class ToDoDbContext : DbContext
 
     //הגדרת חיבור למסד נתונים
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseMySql("name=ToDoDB", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.41-mysql"));
+        => optionsBuilder.UseMySql( Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.41-mysql"));
 
     //הגדרת המודלים
     protected override void OnModelCreating(ModelBuilder modelBuilder)
